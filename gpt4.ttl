@@ -1,0 +1,40 @@
+@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix ex: <http://example.org/valve/> .
+
+# Defining the sensors
+ex:valvePressureSensor a ssn:Sensor ;
+                      dbo:name "Pressure Sensor for Ball Valve" .
+
+ex:valveTemperatureSensor a ssn:Sensor ;
+                          dbo:name "Temperature Sensor for Ball Valve" .
+
+ex:valveFlowRateSensor a ssn:Sensor ;
+                       dbo:name "Flow Rate Sensor for Ball Valve" .
+
+# Example observation instances
+# Pressure Observation
+ex:pressureObservation123 a ssn:Observation ;
+                          ssn:observedProperty ex:valvePressure ;
+                          ssn:observationResult [ a ssn:SensorOutput; ssn:hasValue "800"^^xsd:double ] .
+
+# Temperature Observation
+ex:temperatureObservation123 a ssn:Observation ;
+                              ssn:observedProperty ex:valveTemperature ;
+                              ssn:observationResult [ a ssn:SensorOutput; ssn:hasValue "150"^^xsd:double ] .
+
+# Flow Rate Observation
+ex:flowRateObservation123 a ssn:Observation ;
+                          ssn:observedProperty ex:valveFlowRate ;
+                          ssn:observationResult [ a ssn:SensorOutput; ssn:hasValue "300"^^xsd:double ] .
+
+# Properties being observed
+ex:valvePressure a dbo:Property ;
+                 dbo:name "Pressure of Ball Valve" .
+
+ex:valveTemperature a dbo:Property ;
+                     dbo:name "Temperature of Ball Valve" .
+
+ex:valveFlowRate a dbo:Property ;
+                 dbo:name "Flow Rate of Ball Valve" .
